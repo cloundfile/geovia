@@ -1,7 +1,5 @@
 import { createServer, IncomingMessage, ServerResponse } from 'http';
-import dotenv from 'dotenv';
 import axios from 'axios';
-dotenv.config();
 
 interface Coord {
   0: number;
@@ -83,8 +81,6 @@ const server = createServer(async (req: IncomingMessage, res: ServerResponse) =>
   }
 });
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 3333;
-
-server.listen(PORT, () => {
-  console.log(`Status: OK\nRunning: http://localhost:${PORT}`);
+server.listen(3333, () => {
+  console.log('Server running at http://localhost:3333');
 });
