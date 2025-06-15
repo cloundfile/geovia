@@ -65,7 +65,7 @@ const server = createServer(async (req: IncomingMessage, res: ServerResponse) =>
     const url = `https://router.project-osrm.org/route/v1/foot/${coordinates}?overview=full&geometries=geojson&steps=true`;
 
     const response = await axios.get<OSRMResponse>(url);
-    const routes = response.data.routes[0].geometry.coordinates; // já é do tipo [number, number][]
+    const routes = response.data.routes[0].geometry.coordinates;
 
     const coords: Coordinate[] = routes.map(coord => ({
       latitude: coord[1],
